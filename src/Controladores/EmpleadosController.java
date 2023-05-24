@@ -37,34 +37,23 @@ public class EmpleadosController implements ActionListener, MouseListener{
         
       /*REALIZAR LA CONEXION*/
             
-            //Limpiar la tabla Vista Empleados
+            /*Limpiar la tabla Vista Empleados
                 DefaultTableModel TablaModelo = new DefaultTableModel();
                 TablaModelo.setRowCount(0);
                 TablaModelo.setColumnCount(0);
-                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
-      
-            //prepara el modelo de la tabla
+               this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+            */        
+            /*prepara el modelo de la tabla
                     TablaModelo.addColumn("ID");
                     TablaModelo.addColumn("APELLIDOS");
                     TablaModelo.addColumn("NOMBRES");
                     TablaModelo.addColumn("TELEFONO");
                     
       /* LEVANTAR EL MODELO Y LOGRAR RECORRER EL RESULTSET*/
-        //Captar el resultado que viene del Modelo desde el método LISTARDATOS
-                ResultSet rstEmpleados =  this.ModeloEmpleado.ListarDatos();
-               
-                    try
-                    {
-                       
-                    while(rstEmpleados.next())
-                    {
-                     TablaModelo.addRow(new Object[]{rstEmpleados.getInt("idEmpleados"),rstEmpleados.getString("Apellidos"),rstEmpleados.getString("Nombres"),rstEmpleados.getString("Telefono")});  
-                    }  
-                    }
-                    catch(SQLException e)
-                    {
-                        JOptionPane.showMessageDialog(null, "Algo hizo falta..."+e);
-                    }
+         // Captar el resultado que viene del Modelo desde el método LISTARDATOS
+
+                DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
+                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
                    
             //PASAR EL MODELO CREADO A LA TABLA DE LA VISTA EMPLEADOS        
                     this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
@@ -81,7 +70,21 @@ public class EmpleadosController implements ActionListener, MouseListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.VistaEmpleados.btn_Editar)
         {
-            this.ModeloEmpleado.Actualizar(1, "Gato", "Gata", "12345");
+            this.ModeloEmpleado.Actualizar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
+                this.VistaEmpleados.txtApellidos.getText(),
+                    this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
+
+            DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
+            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+        }
+        if(e.getSource() == this.VistaEmpleados.btn_Agregar)
+        {
+            this.ModeloEmpleado.Guardar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
+                this.VistaEmpleados.txtApellidos.getText(),
+                    this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
+                            
+            DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
+            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
         }
     }
 

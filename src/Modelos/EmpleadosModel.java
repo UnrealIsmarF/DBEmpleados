@@ -10,22 +10,41 @@ Connection MyConexion;
 ResultSet result;
 
 
-public ResultSet ListarDatos()
+public DefaultTableModel ListarDatos()
 {
+    DefaultTableModel TablaModelo = new DefaultTableModel();
+    TablaModelo.setRowCount(0);
+    TablaModelo.setColumnCount(0);
+    
+        TablaModelo.addColumn("idEmpleados");
+        TablaModelo.addColumn("Apellidos");
+        TablaModelo.addColumn("Nombres");
+        TablaModelo.addColumn("Telefono");
+
+
     try
     {
         Conexion nuevaConexion = new Conexion();
         MyConexion = nuevaConexion.Conectar();
         Statement sentencia = MyConexion.createStatement();
-        result = sentencia.executeQuery("select * from Empleados");  
-       return result;
+        result = sentencia.executeQuery("select * from Empleados");
+        
+        
+            while(result.next())
+            {
+                TablaModelo.addRow(new Object[]{result.getInt("idEmpleados"),
+                result.getString("Apellidos"),
+                result.getString("Nombres"),
+                result.getString("Telefono")});
+            }
+        return TablaModelo;
     }
     
     catch(SQLException e)
     {
         JOptionPane.showMessageDialog(null, "No se Pudo Listar Empleados...."+e.getMessage());
-        return result;
     }
+    return TablaModelo;
 }
 
 
@@ -52,7 +71,7 @@ public void Guardar(int codigo, String Apellidos, String Nombres, String Telefon
           Conexion nuevaConexion = new Conexion();
         MyConexion = nuevaConexion.Conectar();
         Statement sentencia = MyConexion.createStatement();
-        sentencia.executeQuery("Insert into Empleados values("+"'"+codigo+"',"+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"')");
+        sentencia.executeQuery("Insert into Empleados values("+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"',"+"'"+codigo+"')");
         }
         catch(SQLException ex)
         {
