@@ -66,6 +66,7 @@ public class EmpleadosController implements ActionListener, MouseListener{
       this.VistaEmpleados.setVisible(true);
     }
 
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.VistaEmpleados.btn_Editar)
