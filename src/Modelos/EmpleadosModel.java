@@ -71,7 +71,7 @@ public void Guardar(int codigo, String Apellidos, String Nombres, String Telefon
             Conexion nuevaConexion = new Conexion();
             MyConexion = nuevaConexion.Conectar();
             Statement sentencia = MyConexion.createStatement();
-            sentencia.executeQuery("Insert into Empleados values("+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"',"+"'"+codigo+"')");
+            sentencia.executeQuery("Insert into Empleados values("+"'"+codigo+"',"+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"')");
         }
         catch(SQLException ex)
         {

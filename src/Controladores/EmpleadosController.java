@@ -76,21 +76,28 @@ public class EmpleadosController implements ActionListener, MouseListener{
 
             DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
             this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
-        }
-        if(e.getSource() == this.VistaEmpleados.btn_Agregar)
-        {
-            this.ModeloEmpleado.Guardar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
-                this.VistaEmpleados.txtApellidos.getText(),
-                    this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
-                            
-            DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
-            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
             
-            this.VistaEmpleados.txtCodigo.setText("");
-            this.VistaEmpleados.txtApellidos.setText("");
-            this.VistaEmpleados.txtNombre.setText("");
-            this.VistaEmpleados.txtTelefono.setText("");
+            
+                this.VistaEmpleados.txtCodigo.setText("");
+                this.VistaEmpleados.txtApellidos.setText("");
+                this.VistaEmpleados.txtNombre.setText("");
+                this.VistaEmpleados.txtTelefono.setText("");
+                
         }
+            if(e.getSource() == this.VistaEmpleados.btn_Agregar)
+            {
+                this.ModeloEmpleado.Guardar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
+                    this.VistaEmpleados.txtApellidos.getText(),
+                        this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
+
+                DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
+                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+
+                this.VistaEmpleados.txtCodigo.setText("");
+                this.VistaEmpleados.txtApellidos.setText("");
+                this.VistaEmpleados.txtNombre.setText("");
+                this.VistaEmpleados.txtTelefono.setText("");
+            }
         if(e.getSource() == this.VistaEmpleados.btnEliminar)
         {
             this.ModeloEmpleado.Eliminar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
