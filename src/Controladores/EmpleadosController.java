@@ -31,7 +31,7 @@ public class EmpleadosController implements ActionListener, MouseListener{
       this.VistaPrincipal.setVisible(true);
       
       /*PONER A LA ESCUCHA LOS BOTONES*/
-      this.VistaEmpleados.btn_Agregar.addActionListener(this);
+      this.VistaEmpleados.btn_Insertar.addActionListener(this);
       this.VistaEmpleados.btn_Editar.addActionListener(this);
       this.VistaEmpleados.btnEliminar.addActionListener(this);
         
@@ -53,13 +53,13 @@ public class EmpleadosController implements ActionListener, MouseListener{
          // Captar el resultado que viene del Modelo desde el método LISTARDATOS
 
                 DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
-                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+//                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
                    
             //PASAR EL MODELO CREADO A LA TABLA DE LA VISTA EMPLEADOS        
-                    this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+//                    this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
                     
             //PONER A LA ESCUCHA LA TABLA DE EMPLEADOS
-            this.VistaEmpleados.jtbEmpleados.addMouseListener(this);
+//            this.VistaEmpleados.jtbEmpleados.addMouseListener(this);
         
         /*LEVANTAR LA VISTA EMPLEADOR*/
       this.VistaEmpleados.setLocationRelativeTo(null);
@@ -69,69 +69,53 @@ public class EmpleadosController implements ActionListener, MouseListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.VistaEmpleados.btn_Editar)
-        {
-            this.ModeloEmpleado.Actualizar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
-                this.VistaEmpleados.txtApellidos.getText(),
-                    this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
-
-            DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
-            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
-            
-            
-                this.VistaEmpleados.txtCodigo.setText("");
-                this.VistaEmpleados.txtApellidos.setText("");
-                this.VistaEmpleados.txtNombre.setText("");
-                this.VistaEmpleados.txtTelefono.setText("");
-                
-        }
-            if(e.getSource() == this.VistaEmpleados.btn_Agregar)
+//        if(e.getSource() == this.VistaEmpleados.btn_Editar)
+//        {
+//            this.ModeloEmpleado.Actualizar(Integer.parseInt(this.VistaEmpleados.txtUsuario.getText()),
+//                this.VistaEmpleados.txtApellidos.getText(),
+//                    this.VistaEmpleados.txtContraseña.getText(), this.VistaEmpleados.txtTelefono.getText());
+//
+//            DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
+//            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+//
+//
+//                this.VistaEmpleados.txtUsuario.setText("");
+//
+//                this.VistaEmpleados.txtContraseña.setText("");
+//
+//                
+//        }
+            if(e.getSource() == this.VistaEmpleados.btn_Insertar)
             {
-                this.ModeloEmpleado.Guardar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
-                    this.VistaEmpleados.txtApellidos.getText(),
-                        this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
+                this.ModeloEmpleado.Guardar(this.VistaEmpleados.txtUsuario.getText(),
+                        this.VistaEmpleados.txtContraseña.getText());
 
                 DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
-                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+//                this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
 
-                this.VistaEmpleados.txtCodigo.setText("");
-                this.VistaEmpleados.txtApellidos.setText("");
-                this.VistaEmpleados.txtNombre.setText("");
-                this.VistaEmpleados.txtTelefono.setText("");
+                this.VistaEmpleados.txtUsuario.setText("");
+
+                this.VistaEmpleados.txtContraseña.setText("");
+
             }
         if(e.getSource() == this.VistaEmpleados.btnEliminar)
         {
-            this.ModeloEmpleado.Eliminar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),
-                this.VistaEmpleados.txtApellidos.getText(),
-                    this.VistaEmpleados.txtNombre.getText(), this.VistaEmpleados.txtTelefono.getText());
+            this.ModeloEmpleado.Eliminar(Integer.parseInt(this.VistaEmpleados.txtUsuario.getText()),      
+                    this.VistaEmpleados.txtContraseña.getText());
             DefaultTableModel TablaModelo = this.ModeloEmpleado.ListarDatos();
-            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
+//            this.VistaEmpleados.jtbEmpleados.setModel(TablaModelo);
             
-            this.VistaEmpleados.txtCodigo.setText("");
-            this.VistaEmpleados.txtApellidos.setText("");
-            this.VistaEmpleados.txtNombre.setText("");
-            this.VistaEmpleados.txtTelefono.setText("");
+            this.VistaEmpleados.txtUsuario.setText("");
+
+            this.VistaEmpleados.txtContraseña.setText("");
+
         }
 
     }
 
     @Override
-    public void mouseClicked(MouseEvent arg0) {
-        int fila;
-        if(arg0.getSource()==this.VistaEmpleados.jtbEmpleados)
-        {
-            fila = this.VistaEmpleados.jtbEmpleados.getSelectedRow();
-            this.VistaEmpleados.txtCodigo.setText(this.VistaEmpleados.jtbEmpleados.getValueAt(fila, 0).toString());
-            
-            fila = this.VistaEmpleados.jtbEmpleados.getSelectedRow();
-            this.VistaEmpleados.txtApellidos.setText(this.VistaEmpleados.jtbEmpleados.getValueAt(fila, 1).toString());
-            
-            fila = this.VistaEmpleados.jtbEmpleados.getSelectedRow();
-            this.VistaEmpleados.txtNombre.setText(this.VistaEmpleados.jtbEmpleados.getValueAt(fila, 2).toString());
-            
-            fila = this.VistaEmpleados.jtbEmpleados.getSelectedRow();
-            this.VistaEmpleados.txtTelefono.setText(this.VistaEmpleados.jtbEmpleados.getValueAt(fila, 3).toString());
-        }
+    public void mouseClicked(MouseEvent arg0){
+        
     }
 
     @Override

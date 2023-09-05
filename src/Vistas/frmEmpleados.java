@@ -28,107 +28,77 @@ public class frmEmpleados extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        txtApellidos = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
-        btn_Agregar = new javax.swing.JButton();
-        btn_Editar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtbEmpleados = new javax.swing.JTable();
+        txtUsuario = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JCheckBox();
+        btn_Editar = new javax.swing.JCheckBox();
+        btn_Insertar = new javax.swing.JCheckBox();
+        btnCrearUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Codigo:");
+        lblUsuario.setText("Usuario:");
 
-        jLabel2.setText("Apellidos:");
-
-        jLabel3.setText("Nombre:");
-
-        jLabel4.setText("Telefono:");
-
-        btn_Agregar.setText("Agregar");
-
-        btn_Editar.setText("Editar");
+        jLabel3.setText("Contraseña:");
 
         btnEliminar.setText("Eliminar");
 
-        jtbEmpleados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
+        btn_Editar.setText("Editar");
 
-            }
-        ));
-        jScrollPane1.setViewportView(jtbEmpleados);
+        btn_Insertar.setText("Insertar");
+
+        btnCrearUsuario.setText("CREAR USUARIO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_Agregar)
-                        .addGap(27, 27, 27)
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(33, 33, 33)
+                                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblUsuario)
+                                .addGap(53, 53, 53)
+                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(btn_Insertar)
+                        .addGap(44, 44, 44)
                         .addComponent(btn_Editar)
-                        .addGap(37, 37, 37)
+                        .addGap(38, 38, 38)
                         .addComponent(btnEliminar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                            .addComponent(txtApellidos)
-                            .addComponent(txtNombre)
-                            .addComponent(txtTelefono))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                        .addGap(164, 164, 164)
+                        .addComponent(btnCrearUsuario)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblUsuario)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Agregar)
+                    .addComponent(btn_Insertar)
                     .addComponent(btn_Editar)
                     .addComponent(btnEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btnCrearUsuario)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,18 +147,13 @@ public class frmEmpleados extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnEliminar;
-    public javax.swing.JButton btn_Agregar;
-    public javax.swing.JButton btn_Editar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JButton btnCrearUsuario;
+    public javax.swing.JCheckBox btnEliminar;
+    public javax.swing.JCheckBox btn_Editar;
+    public javax.swing.JCheckBox btn_Insertar;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jtbEmpleados;
-    public javax.swing.JTextField txtApellidos;
-    public javax.swing.JTextField txtCodigo;
-    public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtTelefono;
+    private javax.swing.JLabel lblUsuario;
+    public javax.swing.JTextField txtContraseña;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

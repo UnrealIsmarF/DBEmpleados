@@ -18,14 +18,16 @@ Connection conexion;
             String numero_puerto = "1521";
             //String sid = "xe";
             String sid = "umg";
-            String url = "jdbc:oracle:thin:@"+ nombre_servidor + ":" + numero_puerto + ":" + sid; 
-            
+            //String url = "jdbc:oracle:thin:@"+ nombre_servidor + ":" + numero_puerto + ":" + sid; 
+            String url = "jdbc:mysql://localhost:3306/tienda";
             //NOMBRE DEL USUARIO Y CONTRASEÑA
             
             //String usuario="SYSTEM";
             //String password="123";
-            String usuario="HA4";
-            String password="Umg$2023";       
+            String usuario = "Root";
+            String password = "";
+            //String usuario="HA4";
+            //String password="Umg$2023";       
             this.conexion = DriverManager.getConnection(url,usuario,password);
             //JOptionPane.showMessageDialog(null,"Conectado");
             return this.conexion;

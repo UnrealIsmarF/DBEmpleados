@@ -64,14 +64,14 @@ public void Actualizar(int codigo, String Apellidos, String Nombre, String telef
           
 }
 
-public void Guardar(int codigo, String Apellidos, String Nombres, String Telefono)
+public void Guardar(String usuario, String Contraseña)
 {
     try
         {
             Conexion nuevaConexion = new Conexion();
             MyConexion = nuevaConexion.Conectar();
             Statement sentencia = MyConexion.createStatement();
-            sentencia.executeQuery("Insert into Empleados values("+"'"+codigo+"',"+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"')");
+            sentencia.executeQuery("Insert into Empleados values("+"'"+usuario+"',"+"'"+Contraseña+"')");
         }
         catch(SQLException ex)
         {
@@ -79,14 +79,14 @@ public void Guardar(int codigo, String Apellidos, String Nombres, String Telefon
         }  
 }
 
-public void Eliminar(int codigo, String Apellidos, String Nombres, String Telefono)
+public void Eliminar(int usuario, String Contraseña)
 {
     try
         {
             Conexion nuevaConexion = new Conexion();
             MyConexion = nuevaConexion.Conectar();
             Statement sentencia = MyConexion.createStatement();
-            sentencia.executeQuery("delete from Empleados where idEmpleados="+"'"+codigo+"'");
+            sentencia.executeQuery("delete from Empleados where idEmpleados="+"'"+usuario+"'");
 
         }
             catch(SQLException ex)
